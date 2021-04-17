@@ -12,6 +12,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CreateComponent } from './products/create/create.component';
 import { UpdateComponent } from './products/update/update.component';
 import { DetailsComponent } from './products/details/details.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { DetailsComponent } from './products/details/details.component';
     NavbarComponent,
     CreateComponent,
     UpdateComponent,
-    DetailsComponent  ],
+    DetailsComponent,
+    SignInComponent,
+    SignUpComponent,
+    NotfoundComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule
