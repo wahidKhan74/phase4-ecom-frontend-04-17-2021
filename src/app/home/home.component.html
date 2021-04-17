@@ -1,1 +1,12 @@
 <p>home works!</p>
+<h3>Event Binding : </h3>
+
+<button (click)="saveAction($event)">Save</button> <br><br>
+
+<p>{{text}}</p>
+Manual way : <input type="text" placeholder="Enter text" (input)="enterText($event)"> <br><br> 
+
+<p>{{sampleText}}</p>
+Angular way : <input type="text" placeholder="Enter a sample text" [(ngModel)]="sampleText"> <br><br> 
+
+<input type="text" placeholder="Enter a sample text" (click)="enterText($event)">

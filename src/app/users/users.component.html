@@ -1,1 +1,28 @@
 <p>users works!</p>
+<div class="container" [style.background-color]="light ? 'white' : 'grey'">
+    <!-- interpolation {{ }} -->
+    <h4>Interpolation based data binding</h4>
+    <p [style.color]="color.BLUE" [style.font-size.px]="'24'">Username : {{username}}</p>  
+    <!-- <img src={{userImage}} alt="Smiley Image" srcset=""> -->
+    <p [style.font-size.px]="count">User Age : {{age}}</p>
+    <p>User Email : {{email}}</p>
+    <p>Account Id : {{account.id}}  - Account Name : {{account.name}} - Account balance : {{account.balance}}</p>
+    <hr>
+    <h4>Property binding</h4>
+    <!-- property binding -->
+    <p [class]="'bg-container1'" >Username : <span [innerHTML]="username"></span> </p>
+    <!-- <img [src]="userImage" [alt]="userImage" srcset=""> -->
+
+    <!-- <p [className]="'bg-container2 bg'">
+        Account Id : <span [innerHTML]="account.id"></span>  => 
+        Account Name : <span [innerHTML]="account.name"></span>  =>
+        Account Blance : <span [innerHTML]="account.balance"></span>  =>
+    </p> -->
+
+    <p [class]="light ? 'bg-container1' : 'bg-container3'" >User age : <span [innerHTML]="age"></span> </p>
+    <p [class]="getClass()" >User email : <span [innerHTML]="email"></span> </p>
+
+    <button (click)="increaseCounter($event)"> Increase 10+</button>
+    <button (click)="changeBgColor()"> Change Bg Color</button>
+
+</div>

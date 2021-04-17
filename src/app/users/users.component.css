@@ -1,0 +1,21 @@
+.bg-container1 {
+    background-color: aquamarine;
+    padding: 20px;
+    border: 1px solid red;
+}
+
+.bg-container2 {
+    background-color: grey ;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.bg-container3 {
+    background-color: brown ;
+    color: white;
+    padding: 20px;
+    border: 1px solid black;
+}
+.bg {
+  font-size: 30px;
+}

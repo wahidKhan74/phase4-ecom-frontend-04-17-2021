@@ -15,6 +15,7 @@ import { DetailsComponent } from './products/details/details.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     NotfoundComponent  ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
