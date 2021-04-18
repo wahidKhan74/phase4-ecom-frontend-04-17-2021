@@ -1,1 +1,56 @@
-<p>reactive-form works!</p>
+<h4>Reactive Form - Example</h4>
+<div class="well well-lg">
+    <form [formGroup]="exampleForm" class="form-horizontal" (ngSubmit)="submitForm(exampleForm)" novalidate>
+        <div class="form-row">
+            <div class="form-group col-md">
+                <label for="firstName">First Name * </label>
+                <input type="text" class="form-control" formControlName="firstName" name="firstName"
+                 id="firstName" placeholder="Enter first Name" >
+                <small *ngIf="hasError('firstName')" [ngClass]="{'has-error' : hasError('firstName') }" >
+                    <span *ngIf="firstName.errors.required"> First Name is a required field .</span>
+                    <span *ngIf="firstName.errors.minlength"> First Name is  min 2 char long .</span>
+                    <span *ngIf="firstName.errors.maxlength"> First Name is  max 16 char long .</span>
+                </small>
+            </div>
+            <div class="form-group col-md">
+                <label for="lastName">Last Name </label>
+                <input type="text"  class="form-control" formControlName="lastName" name="lastName" 
+                id="lastName" placeholder="Enter last Name" >
+                <small *ngIf="hasError('lastName')" [ngClass]="{'has-error' : hasError('lastName') }" >
+                    <span *ngIf="lastName.errors.required"> Last Name is a required field .</span>
+                    <span *ngIf="lastName.errors.minlength"> Last Name is  min 2 char long .</span>
+                    <span *ngIf="lastName.errors.maxlength"> Last Name is  max 16 char long .</span>
+                </small>
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" formControlName="email" name="email" id="email" 
+                    placeholder="Enter Your emai" >
+                <small *ngIf="hasError('email')" [ngClass]="{'has-error' : hasError('email') }" >
+                    <span *ngIf="email.errors.required"> Email is a required field .</span>
+                    <span *ngIf="email.errors.email"> Please, enter a valid email address here.</span>
+                </small>
+
+              </div>
+
+              <div class="form-group col-md">
+                <label for="role">Role Select</label>
+                <select class="form-control" id="role" formControlName="role" name="role" required>
+                 <option value="">choose a role</option>
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
+                  <option value="vendor">Vendor</option>
+                </select>
+                <small *ngIf="hasError('role')" [ngClass]="{'has-error' : hasError('role') }" >
+                    <span *ngIf="role.errors.required"> Role is a required field .</span>
+                </small>
+              </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" >Submit</button>
+      </form>
+
+</div>
+
