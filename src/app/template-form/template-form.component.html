@@ -1,18 +1,26 @@
 <h4>Template Driven Form - Example</h4>
 <div class="well well-lg">
-    <form #exampleForm="ngForm" class="form-horizontal">
+    <form #exampleForm="ngForm" class="form-horizontal" novalidate>
         <div class="form-row">
             <div class="form-group col-md">
                 <label for="firstName">First Name </label>
                 <input type="text" class="form-control" [(ngModel)]="user.firstName" name="firstName"
-                 id="firstName" placeholder="Enter first Name">
-                <small id="firstName" class="form-text text-muted">Enter Your first name</small>
+                 id="firstName" #firstName="ngModel" placeholder="Enter first Name" minlength="2"  maxlength="15" required>
+                <small *ngIf="hasError(firstName)" [ngClass]="{'has-error' : hasError(firstName) }" >
+                    <span *ngIf="firstName.errors.required"> First Name is a required field .</span>
+                    <span *ngIf="firstName.errors.minlength"> First Name is  min 2 char long .</span>
+                    <span *ngIf="firstName.errors.maxlength"> First Name is  max 16 char long .</span>
+                </small>
             </div>
             <div class="form-group col-md">
                 <label for="lastName">Last Name </label>
-                <input type="text" class="form-control" [(ngModel)]="user.lastName" name="lastName" 
-                id="lastName" placeholder="Enter last Name">
-                <small id="lastName" class="form-text text-muted">Enter Your last name</small>
+                <input type="text"  #lastName="ngModel" class="form-control" [(ngModel)]="user.lastName" name="lastName" 
+                id="lastName" placeholder="Enter last Name" minlength="2"  maxlength="15" required>
+                <small *ngIf="hasError(lastName)" [ngClass]="{'has-error' : hasError(lastName) }" >
+                    <span *ngIf="lastName.errors.required"> Last Name is a required field .</span>
+                    <span *ngIf="lastName.errors.minlength"> Last Name is  min 2 char long .</span>
+                    <span *ngIf="lastName.errors.maxlength"> Last Name is  max 16 char long .</span>
+                </small>
             </div>
         </div>
         <div class="form-row">
@@ -20,21 +28,28 @@
             <div class="form-group col-md">
                 <label for="email">Email address</label>
                 <input type="email" class="form-control" [(ngModel)]="user.email" name="email" id="email" 
-                placeholder="Enter Your emai">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                #email="ngModel" placeholder="Enter Your emai" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <small *ngIf="hasError(email)" [ngClass]="{'has-error' : hasError(email) }" >
+                    <span *ngIf="email.errors.required"> Email is a required field .</span>
+                    <span *ngIf="email.errors.pattern"> Please, enter a valid email address here.</span>
+                </small>
+
               </div>
 
               <div class="form-group col-md">
                 <label for="role">Role Select</label>
-                <select class="form-control" id="role" [(ngModel)]="user.role" name="role">
-                  <option value="">choose a role</option>
+                <select class="form-control" id="role" [(ngModel)]="user.role" name="role" #role="ngModel" required>
+                 <option value="">choose a role</option>
                   <option value="admin">Admin</option>
                   <option value="user">User</option>
                   <option value="vendor">Vendor</option>
                 </select>
+                <small *ngIf="hasError(role)" [ngClass]="{'has-error' : hasError(role) }" >
+                    <span *ngIf="role.errors.required"> Role is a required field .</span>
+                </small>
               </div>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="submitForm()">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="submitForm(exampleForm)">Submit</button>
       </form>
 
 </div>
