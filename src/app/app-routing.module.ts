@@ -9,6 +9,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CreateComponent } from './products/create/create.component';
 import { UpdateComponent } from './products/update/update.component';
 import { DetailsComponent } from './products/details/details.component';
+import { TemplateFormComponent } from './template-form/template-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 // create routes
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
     { path:'details' , component:DetailsComponent }
   ]},
   { path: 'users', component:UsersComponent},
+  { path: 'template-form', component:TemplateFormComponent},
+  { path: 'reactive-form', component:ReactiveFormComponent},
   { path: 'sign-in', component:SignInComponent},
   { path: 'sign-up', component:SignUpComponent},
   { path: '**', component:NotfoundComponent},

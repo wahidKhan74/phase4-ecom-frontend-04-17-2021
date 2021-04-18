@@ -1,0 +1,41 @@
+<h4>Template Driven Form - Example</h4>
+<div class="well well-lg">
+    <form #exampleForm="ngForm" class="form-horizontal">
+        <div class="form-row">
+            <div class="form-group col-md">
+                <label for="firstName">First Name </label>
+                <input type="text" class="form-control" [(ngModel)]="user.firstName" name="firstName"
+                 id="firstName" placeholder="Enter first Name">
+                <small id="firstName" class="form-text text-muted">Enter Your first name</small>
+            </div>
+            <div class="form-group col-md">
+                <label for="lastName">Last Name </label>
+                <input type="text" class="form-control" [(ngModel)]="user.lastName" name="lastName" 
+                id="lastName" placeholder="Enter last Name">
+                <small id="lastName" class="form-text text-muted">Enter Your last name</small>
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" [(ngModel)]="user.email" name="email" id="email" 
+                placeholder="Enter Your emai">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+
+              <div class="form-group col-md">
+                <label for="role">Role Select</label>
+                <select class="form-control" id="role" [(ngModel)]="user.role" name="role">
+                  <option value="">choose a role</option>
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
+                  <option value="vendor">Vendor</option>
+                </select>
+              </div>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="submitForm()">Submit</button>
+      </form>
+
+</div>
+
