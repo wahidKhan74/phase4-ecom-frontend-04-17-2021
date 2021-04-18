@@ -21,7 +21,7 @@ const routes: Routes = [
     { path:'' , component:ProductsComponent },
     { path:'create' , component:CreateComponent },
     { path:'update' , component:UpdateComponent },
-    { path:'details' , component:DetailsComponent }
+    { path:'details/:id' , component:DetailsComponent }
   ]},
   { path: 'users', component:UsersComponent},
   { path: 'template-form', component:TemplateFormComponent},
